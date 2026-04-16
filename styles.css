@@ -1,0 +1,276 @@
+/* =========================
+   DESIGN SYSTEM PROFISSIONAL
+   ========================= */
+:root {
+  --bg: #0b1220;
+
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-2: rgba(255, 255, 255, 0.09);
+
+  --stroke: rgba(255, 255, 255, 0.10);
+  --stroke-strong: rgba(255, 255, 255, 0.18);
+
+  --text: #e6eaf2;
+  --muted: rgba(230, 234, 242, 0.65);
+
+  --primary: #4f8cff;
+
+  --alta: #ff5c5c;
+  --media: #ffb020;
+  --baixa: #2dd4bf;
+
+  --radius-md: 14px;
+  --radius-lg: 18px;
+
+  --shadow-sm: 0 4px 10px rgba(0,0,0,0.25);
+  --shadow-md: 0 10px 30px rgba(0,0,0,0.35);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.45);
+
+  --transition: 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* =========================
+   BASE
+   ========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto;
+
+  background: radial-gradient(circle at top, #18243d, var(--bg));
+  color: var(--text);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+}
+
+/* =========================
+   CONTAINER
+   ========================= */
+.todo {
+  width: 100%;
+  max-width: 560px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.07),
+    rgba(255,255,255,0.04)
+  );
+
+  border: 1px solid var(--stroke);
+
+  border-radius: var(--radius-lg);
+
+  padding: 28px;
+
+  backdrop-filter: blur(22px);
+
+  box-shadow: var(--shadow-lg);
+
+  transition: var(--transition);
+}
+
+.todo:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   TITLE
+   ========================= */
+.todo__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 22px;
+  letter-spacing: -0.6px;
+}
+
+/* =========================
+   INPUT
+   ========================= */
+#task-input {
+  width: 100%;
+  padding: 12px 14px;
+
+  border-radius: var(--radius-md);
+
+  border: 1px solid var(--stroke);
+
+  background: rgba(0,0,0,0.25);
+  color: var(--text);
+
+  outline: none;
+
+  transition: var(--transition);
+}
+
+#task-input:focus {
+  border-color: rgba(79,140,255,0.7);
+  box-shadow: 0 0 0 4px rgba(79,140,255,0.18);
+}
+
+/* =========================
+   PRIORIDADE
+   ========================= */
+.todo__priority {
+  margin-top: 14px;
+  border: none;
+
+  display: flex;
+  gap: 14px;
+
+  color: var(--muted);
+}
+
+/* =========================
+   BOTÃO
+   ========================= */
+.todo__add-btn {
+  width: 100%;
+  margin-top: 16px;
+
+  padding: 12px 14px;
+
+  border: none;
+  border-radius: var(--radius-md);
+
+  background: linear-gradient(135deg, #4f8cff, #3b6eea);
+
+  color: white;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: var(--shadow-sm);
+
+  transition: var(--transition);
+}
+
+.todo__add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* =========================
+   LISTA
+   ========================= */
+.todo__list ul {
+  list-style: none;
+  margin-top: 22px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* =========================
+   ITEM
+   ========================= */
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px;
+
+  border-radius: var(--radius-md);
+
+  background: var(--surface-2);
+
+  border: 1px solid var(--stroke);
+
+  transition: var(--transition);
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--stroke-strong);
+}
+
+/* prioridade */
+.todo-item--alta { border-left: 4px solid var(--alta); }
+.todo-item--media { border-left: 4px solid var(--media); }
+.todo-item--baixa { border-left: 4px solid var(--baixa); }
+
+.todo-item .text {
+  font-size: 0.95rem;
+}
+
+.todo-item.done .text {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/* remover */
+.remove-btn {
+  background: transparent;
+  border: none;
+
+  color: rgba(255,255,255,0.45);
+
+  cursor: pointer;
+
+  padding: 6px;
+
+  transition: var(--transition);
+}
+
+.remove-btn:hover {
+  color: var(--alta);
+}
+
+/* =========================
+   TOAST (NOVO)
+   ========================= */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  padding: 12px 14px;
+
+  border-radius: 12px;
+
+  background: rgba(20, 25, 40, 0.95);
+
+  border: 1px solid rgba(255,255,255,0.12);
+
+  color: white;
+
+  font-size: 0.9rem;
+
+  box-shadow: var(--shadow-md);
+
+  backdrop-filter: blur(10px);
+
+  opacity: 0;
+  transform: translateY(-10px);
+
+  transition: all 180ms ease;
+
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.success {
+  border-left: 4px solid var(--baixa);
+}
+
+.toast.error {
+  border-left: 4px solid var(--alta);
+}

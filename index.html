@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List v.1 - Angello</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="todo">
+
+    <header class="todo__header">
+      <h1 class="todo__title">Organizador de Tarefas</h1>
+    </header>
+
+    <section class="todo__input">
+      <form class="todo__form" id="todo-form">
+
+        <div class="todo__field">
+          <label for="task-input">Nova tarefa</label>
+          <input 
+            type="text" 
+            id="task-input" 
+            name="task"
+            placeholder="Digite sua tarefa"
+            required
+          >
+        </div>
+
+        <fieldset class="todo__priority">
+          <legend>Prioridade</legend>
+
+          <label class="radio-container">
+            <input type="radio" name="priority" value="alta" checked>
+            <span>Alta</span>
+          </label>
+
+          <label class="radio-container">
+            <input type="radio" name="priority" value="media">
+            <span>Média</span>
+          </label>
+
+          <label class="radio-container">
+            <input type="radio" name="priority" value="baixa">
+            <span>Baixa</span>
+          </label>
+
+        </fieldset>
+
+        <button type="submit" class="todo__add-btn">
+          Adicionar Tarefa
+        </button>
+
+      </form>
+    </section>
+
+    <section class="todo__list">
+      <ul id="task-list"></ul>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
